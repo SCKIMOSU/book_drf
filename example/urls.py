@@ -11,7 +11,7 @@ urlpatterns = router.urls
 
 urlpatterns = [
     path('hello/', helloAPI, name='hello'),
-    path('Hello/', HelloAPI.as_view(), name='Hello'),
+    path('Hello/', HelloAPI.as_view(), name='Hello'), # class based view에서는 항상 as_view()를 지정해야 함 
     path('fbv/books/', booksAPI),
     path('fbv/book/<int:bid>/', bookAPI),
     path('cbv/books/', BooksAPI.as_view()),
