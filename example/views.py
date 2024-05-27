@@ -12,6 +12,17 @@ from rest_framework import generics
 
 from rest_framework import viewsets
 
+
+# Create your views here.
+@api_view(['GET'])
+def helloAPI(request):
+    return Response("hello world")
+
+class HelloAPI(APIView):
+    def get(self, request):
+        return Response("Hello world")
+
+
 class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
@@ -51,14 +62,7 @@ class BookAPIMixins(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.D
         return self.destroy(request, *args, **kwargs)
 
 
-# Create your views here.
-@api_view(['GET'])
-def HelloAPI(request):
-    return Response("hello world")
 
-class HelloAPI(APIView):
-    def get(self, request):
-        return Response("Hello world")
 
 
 @api_view(['GET', 'POST'])
